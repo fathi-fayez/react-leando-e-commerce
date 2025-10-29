@@ -1,0 +1,7 @@
+a {
+    padding: 10px 20px;
+}
+
+.active {
+    color: var(--primary-color);
+}

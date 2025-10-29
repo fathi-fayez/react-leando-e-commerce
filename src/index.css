@@ -1,0 +1,10 @@
+/* Add your custom styles here */
+@import "tailwindcss";
+:root {
+    --primary-color: #349bf0;
+    --secondary-color: #59a2de;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
