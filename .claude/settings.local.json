@@ -3,7 +3,8 @@
     "allow": [
       "Bash(dir /s /b \"c:\\Users\\Delta.co\\Documents\\React Projects\\leando-e-commerce\")",
       "Bash(npm run build:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(git fetch:*)"
     ],
     "deny": [],
     "ask": []
