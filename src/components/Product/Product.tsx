@@ -16,6 +16,8 @@ interface ProductCardProps {
   item: ProductItem;
 }
 
+let man: number = 0;
+
 const ProductCard = ({ item }: ProductCardProps) => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string>(item.thumbnail);
@@ -93,9 +95,8 @@ const ProductCard = ({ item }: ProductCardProps) => {
           <button
             key={i}
             onClick={() => setSelectedImage(pic)}
-            className={`rounded-full p-0.5 ${
-              selectedImage === pic ? "ring-2 ring-black" : ""
-            }`}
+            className={`rounded-full p-0.5 ${selectedImage === pic ? "ring-2 ring-black" : ""
+              }`}
           >
             <img
               src={pic}
