@@ -16,7 +16,6 @@ interface ProductCardProps {
   item: ProductItem;
 }
 
-let man: number = 0;
 
 const ProductCard = ({ item }: ProductCardProps) => {
   const navigate = useNavigate();

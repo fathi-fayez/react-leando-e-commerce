@@ -11,6 +11,9 @@ const Header = () => {
                 <NavLink to="/products" className={({ isActive }) => (isActive ? styles.active : "")}>
                     Products
                 </NavLink>
+                <NavLink to="/categories" className={({ isActive }) => (isActive ? styles.active : "")}>
+                    Categories
+                </NavLink>
                 <NavLink to="/about" className={({ isActive }) => (isActive ? styles.active : "")}>
                     About
                 </NavLink>
