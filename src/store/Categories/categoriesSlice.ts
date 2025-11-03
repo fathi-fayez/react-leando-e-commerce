@@ -1,10 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import actGetCategories from "./act/actGetCategories";
+import type { TCategory } from "@customTypes/category";
+import type { TLoading } from "@customTypes/shared";
 
-const initialState = {
+interface ICategoriesState {
+    categories: TCategory[];
+    loading: TLoading;
+    error: string | null;
+}
+
+const initialState: ICategoriesState = {
     categories: [],
+    loading: 'idle',
     error: null,
-    loading: 'idle'
 }
 
 export const categoriesSlice = createSlice({

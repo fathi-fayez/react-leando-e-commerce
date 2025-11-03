@@ -1,19 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-export interface ProductItem {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  thumbnail: string;
-  images: string[];
-}
+import type { TProduct } from "@customTypes/product";
 
 interface ProductCardProps {
-  item: ProductItem;
+  item: TProduct;
 }
 
 

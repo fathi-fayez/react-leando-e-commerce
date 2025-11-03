@@ -58,6 +58,9 @@
       ],
       "@util/*": [
         "./src/util/*"
+      ],
+      "@customTypes/*": [
+        "./src/types/*"
       ]
     },
   },

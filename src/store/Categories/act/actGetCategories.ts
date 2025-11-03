@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-// import { TCategory } from "@customTypes/category";
+import type { TCategory } from "@customTypes/category";
 
 type TResponse = TCategory[];
 

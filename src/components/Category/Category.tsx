@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
@@ -13,7 +12,6 @@ interface CategoryCardProps {
 }
 
 const CategoryCard = ({ item }: CategoryCardProps) => {
-  const navigate = useNavigate();
 
 
   return (

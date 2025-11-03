@@ -1,25 +1,48 @@
-import { createSlice } from '@reduxjs/toolkit'
-
-const initialState = {
-    records: [],
-    error: null,
-    loading: 'idle'
+import { createSlice } from "@reduxjs/toolkit";
+import actGetProductsByCategory from "./act/actGetProducts";
+import type { TProduct } from "@customTypes/product";
+import type { TLoading } from "@customTypes/shared";
+interface IProductsState {
+    products: TProduct[];
+    loading: TLoading;
+    error: string | null;
 }
 
-export const productsSlice = createSlice({
-    name: 'ProductsSlice',
+const initialState: IProductsState = {
+    products: [],
+    loading: "idle",
+    error: null,
+};
+
+const productsSlice = createSlice({
+    name: "products",
     initialState,
     reducers: {
-        increment: (state) => {
-        },
-        decrement: (state) => {
-        },
-        incrementByAmount: (state, action) => {
+        productsCleanUp: (state) => {
+            state.products = [];
+
         },
     },
-})
+    extraReducers: (builder) => {
+        builder.addCase(actGetProductsByCategory.pending, (state) => {
+            state.loading = "pending";
+            state.error = null;
+        });
+        builder.addCase(actGetProductsByCategory.fulfilled, (state, action) => {
+            console.log('from store', action);
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = productsSlice.actions
+            state.loading = "succeeded";
+            state.products = action.payload.products;
+        });
+        builder.addCase(actGetProductsByCategory.rejected, (state, action) => {
+            state.loading = "failed";
+            if (action.payload && typeof action.payload === "string") {
+                state.error = action.payload;
+            }
+        });
+    },
+});
 
-export default productsSlice.reducer
+export const { productsCleanUp } = productsSlice.actions;
+export { actGetProductsByCategory };
+export default productsSlice.reducer;
