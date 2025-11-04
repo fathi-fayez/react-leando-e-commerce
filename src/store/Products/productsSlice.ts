@@ -29,8 +29,6 @@ const productsSlice = createSlice({
             state.error = null;
         });
         builder.addCase(actGetProductsByCategory.fulfilled, (state, action) => {
-            console.log('from store', action);
-
             state.loading = "succeeded";
             state.products = action.payload.products;
         });

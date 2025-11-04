@@ -29,4 +29,4 @@ const Categories = () => {
         </div>
     )
 }
-export default Categories
+export default Categories 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { TProduct } from "@customTypes/product";
+import { useAppSelector, useAppDispatch } from "@hooks/index"
+import { addToCart } from "@store/cart/cartSlice";
 
 interface ProductCardProps {
   item: TProduct;
@@ -8,7 +10,8 @@ interface ProductCardProps {
 
 
 const ProductCard = ({ item }: ProductCardProps) => {
-  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  // const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string>(item.thumbnail);
 
   const discountedPrice = Math.ceil(
@@ -21,8 +24,9 @@ const ProductCard = ({ item }: ProductCardProps) => {
       ? truncatedText
       : truncatedText.substring(0, 70) + "...";
 
-  const handleChooseOption = () => {
-    navigate(`/product/${item.id}`);
+  const handleAddToCart = () => {
+    dispatch(addToCart(item.id));
+    // navigate("/cart");
   };
 
   // Generate star rating display
@@ -98,12 +102,12 @@ const ProductCard = ({ item }: ProductCardProps) => {
 
       <div>
         <button
-          onClick={handleChooseOption}
+          onClick={handleAddToCart}
           className="py-3 px-9 w-3/4 border border-gray-300 rounded-full
-            block mx-auto mt-5 hover:bg-gray-50 transition-colors"
+            block mx-auto mt-5 hover:bg-gray-50 transition-colors cursor-pointer font-medium"
           style={{ textTransform: "none" }}
         >
-          Choose Option
+          Add To Cart
         </button>
       </div>
     </div>
