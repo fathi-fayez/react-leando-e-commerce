@@ -24,7 +24,7 @@ const Header = () => {
                 <NavLink to="/register" className={({ isActive }) => (isActive ? styles.active : "")}>
                     Register
                 </NavLink>
-                <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : "")}>
+                <NavLink to="/cart" className={({ isActive }) => (isActive ? styles.active : "")}>
                     <HeaderBasket />
                 </NavLink>
             </nav>

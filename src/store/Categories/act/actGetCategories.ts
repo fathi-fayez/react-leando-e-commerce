@@ -10,7 +10,7 @@ const actGetCategories = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
         try {
             const response = await axios.get<TResponse>(
-                `${import.meta.env.VITE_BASE_URL}/products/categories`
+                `/products/categories`
             );
             return response.data;
         } catch (error) {

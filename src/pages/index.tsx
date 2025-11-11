@@ -6,5 +6,7 @@ import Login from './Login/Login'
 import Register from './Register/Register'
 import Error from './Error/Error'
 import Categories from './Categories/Categories'
+import Cart from './Cart/Cart'
 
-export { Home, AboutUs, ContactUs, Products, Login, Register, Error, Categories }
+
+export { Home, AboutUs, ContactUs, Products, Login, Register, Error, Categories, Cart }

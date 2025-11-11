@@ -2,26 +2,37 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import CategoriesSlice from '@store/Categories/categoriesSlice'
 import ProductsSlice from '@store/Products/productsSlice'
 import cartSlice from '@store/cart/cartSlice'
-import { persistStore, persistReducer } from 'redux-persist'
+import {
+    persistStore, persistReducer, FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-const persistConfig = {
-    key: 'root',
+const cartPersistConfig = {
+    key: 'cart',
     storage,
-    whiteList: ['cart'],
+    whiteList: ['items'],
 }
 
 const rootReducer = combineReducers({
     products: ProductsSlice,
     categories: CategoriesSlice,
-    cart: cartSlice
+    cart: persistReducer(cartPersistConfig, cartSlice)
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
-    reducer: persistedReducer,
-    devTools: import.meta.env.MODE !== 'production',
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 })
 
 const persistor = persistStore(store)
@@ -29,4 +40,4 @@ const persistor = persistStore(store)
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export له{ store, persistor }
+export { store, persistor }
