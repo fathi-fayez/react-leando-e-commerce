@@ -1,23 +1,9 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useProducts } from "./useProducts";
 import ProductCard from "@components/Product/Product";
-import { useAppSelector, useAppDispatch } from "@hooks/index"
-import { actGetProductsByCategory, productsCleanUp } from "@store/Products/productsSlice";
 import { Loading } from "@components/feedback";
 
 const Products = () => {
-    const dispatch = useAppDispatch();
-    const { products, loading, error } = useAppSelector((state) => state.products);
-
-    const { category } = useParams<{ category: string }>();
-
-    useEffect(() => {
-        dispatch(actGetProductsByCategory(category as string))
-
-        return () => {
-            dispatch(productsCleanUp())
-        }
-    }, [dispatch, category]);
+    const { loading, products, error } = useProducts();
 
     return (
         <div className="container mx-auto px-4 py-8">
