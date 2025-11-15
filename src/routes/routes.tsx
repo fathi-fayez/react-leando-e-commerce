@@ -1,6 +1,10 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { MainLayout } from '@layouts/index'
+// Lottie animation
+import { LottieHandler } from "@components/feedback/LottieHandler/LottieHandler";
+// Suspense fallback
+import { SuspenseFallback } from '@components/feedback'
 // import { Home, AboutUs, ContactUs, Products, Categories, Register, Login, Error, Cart } from '@pages/index'
 
 const Home = lazy(() => import("@pages/Home/Home"));
@@ -20,42 +24,54 @@ export const router = createBrowserRouter([
         element: (
             <MainLayout />
         ),
-        errorElement: (
-            <Suspense fallback={<div>Loading...</div>}>
-                <Error />
-            </Suspense>),
+        errorElement: (<Error />),
         children: [
             {
                 index: true,
-                element: <Home />,
+                element: <SuspenseFallback>
+                    <Home />
+                </SuspenseFallback>,
             },
             {
                 path: "about",
-                element: <AboutUs />,
+                element: <SuspenseFallback>
+                    <AboutUs />
+                </SuspenseFallback>,
             },
             {
                 path: "contact",
-                element: <ContactUs />,
+                element: <SuspenseFallback>
+                    <ContactUs />
+                </SuspenseFallback>,
             },
             {
                 path: "products/:category",
-                element: <Products />,
+                element: <SuspenseFallback>
+                    <Products />
+                </SuspenseFallback>,
             },
             {
                 path: "categories",
-                element: <Categories />,
+                element: <SuspenseFallback>
+                    <Categories />
+                </SuspenseFallback>,
             },
             {
                 path: "register",
-                element: <Register />,
+                element: <SuspenseFallback>
+                    <Register />
+                </SuspenseFallback>,
             },
             {
                 path: "login",
-                element: <Login />,
+                element: <SuspenseFallback>
+                    <Login /></SuspenseFallback>,
             },
             {
                 path: "cart",
-                element: <Cart />,
+                element: <SuspenseFallback>
+                    <Cart />
+                </SuspenseFallback>,
             },
         ],
     },
