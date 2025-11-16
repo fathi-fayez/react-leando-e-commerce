@@ -1,3 +1,3 @@
 import { useAppSelector, useAppDispatch } from "./appDispatch";
-
-export { useAppSelector, useAppDispatch }
+import { useCheckEmailAvailability } from "./useCheckEmailAvailability";
+export { useAppSelector, useAppDispatch, useCheckEmailAvailability };
