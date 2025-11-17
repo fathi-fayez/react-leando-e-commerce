@@ -56,8 +56,8 @@
       "@styles/*": [
         "./src/styles/*"
       ],
-      "@util/*": [
-        "src/util/*"
+      "@utils/*": [
+        "src/utils/*"
       ],
       "@customTypes/*": [
         "./src/types/*"

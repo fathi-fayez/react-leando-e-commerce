@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "@hooks/index"
-import { actGetCategories } from "@store/Categories/categoriesSlice";
+import { actGetCategories } from "@store/categories/categoriesSlice";
 export const useCategories = () => {
     const dispatch = useAppDispatch();
     const { categories, loading, error } = useAppSelector((state) => state.categories);

@@ -1,7 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import CategoriesSlice from '@store/Categories/categoriesSlice'
-import ProductsSlice from '@store/Products/productsSlice'
+import CategoriesSlice from '@store/categories/categoriesSlice'
+import ProductsSlice from '@store/products/productsSlice'
 import cartSlice from '@store/cart/cartSlice'
+import ordersSlice from '@store/orders/ordersSlice'
 import {
     persistStore, persistReducer, FLUSH,
     REHYDRATE,
@@ -21,7 +22,8 @@ const cartPersistConfig = {
 const rootReducer = combineReducers({
     products: ProductsSlice,
     categories: CategoriesSlice,
-    cart: persistReducer(cartPersistConfig, cartSlice)
+    cart: persistReducer(cartPersistConfig, cartSlice),
+    orders: ordersSlice
 })
 
 

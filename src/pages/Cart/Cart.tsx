@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "@hooks/index"
 // import CartItem from "@components/CartItem/CartItem";
 import { actGetCartItems } from "@store/cart/cartSlice";
+import { actPlaceOrder } from "@store/orders/ordersSlice"
 import { LottieHandler } from "@components/feedback/LottieHandler/LottieHandler";
 const Cart = () => {
     const dispatch = useAppDispatch();
@@ -41,6 +42,8 @@ const Cart = () => {
                         <div className="text-right mt-4 font-bold text-xl">
                             Total: ${products.reduce((acc, item) => acc + item.total, 0).toFixed(2)}
                         </div>
+
+                        <button className="btn button bg-blue-600 text-white rounded p-2 cursor-pointer" onClick={() => dispatch(actPlaceOrder())}>placeorder</button>
                     </div>
                 ) : (
                     <LottieHandler

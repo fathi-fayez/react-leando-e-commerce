@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@hooks/index"
-import { actGetProductsByCategory, productsCleanUp } from "@store/Products/productsSlice";
+import { actGetProductsByCategory, productsCleanUp } from "@store/products/productsSlice";
 
 export const useProducts = () => {
     const dispatch = useAppDispatch();
