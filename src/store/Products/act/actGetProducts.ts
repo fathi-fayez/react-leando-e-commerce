@@ -8,6 +8,8 @@ type TResponse = TProduct[];
 const actGetProductsByCategory = createAsyncThunk(
     "products/actGetProductsByCategory",
     async (category: string, thunkAPI) => {
+        console.log(category);
+        
         const { rejectWithValue } = thunkAPI;
         try {
             const response = await axios.get<TResponse>(

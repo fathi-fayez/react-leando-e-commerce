@@ -8,7 +8,7 @@ type LoadingProps = {
 
 const Loading = ({ loading, error, children }: LoadingProps) => {
     if (loading === "pending") {
-        return <div>loading please wait</div>;
+        return <div className="text-center text-2xl font-bold">loading please wait</div>;
     }
     if (loading === "failed") {
         return <div>{error}</div>;
