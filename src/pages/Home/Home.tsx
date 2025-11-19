@@ -6,6 +6,7 @@ import { actGetProductsByCategory, productsCleanUp } from "@store/products/produ
 import { actGetCategories } from "@store/categories/categoriesSlice";
 import { Loading } from "@components/feedback";
 import WhyChooseUs from "@components/WhyChooseUs/WhyChooseUs";
+import Testimonial from "@components/Testimonial/Testimonial";
 
 const Home = () => {
     const dispatch = useAppDispatch();
@@ -55,6 +56,8 @@ const Home = () => {
             </section>
 
             <WhyChooseUs />
+
+            <Testimonial />
         </>
     )
 }

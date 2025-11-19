@@ -1,0 +1,285 @@
+.testimonialSection {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 20px;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    width: 100%;
+}
+
+.testimonialSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.swiperWrapper {
+    position: relative;
+    padding: 20px 0 60px;
+    width: 100%;
+    z-index: 2;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.swiper {
+    padding-bottom: 50px;
+    width: 100%;
+    overflow: hidden !important;
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.swiper :global(.swiper-wrapper) {
+    align-items: stretch;
+    display: flex;
+}
+
+.swiper :global(.swiper-slide) {
+    height: auto;
+    display: flex;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.testimonialCard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-height: 280px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 100%;
+    opacity: 1;
+    visibility: visible;
+    box-sizing: border-box;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+.quoteIcon {
+    color: #667eea;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.quoteText {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.authorLine {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.authorName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #667eea;
+    letter-spacing: 0.5px;
+}
+
+.loadingText,
+.errorText {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.25rem;
+    padding: 40px 20px;
+}
+
+.errorText {
+    color: #ffebee;
+}
+
+/* Swiper Navigation Styles */
+.testimonialSection :global(.swiper-button-next),
+.testimonialSection :global(.swiper-button-prev) {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+    margin-top: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.testimonialSection :global(.swiper-button-next:hover),
+.testimonialSection :global(.swiper-button-prev:hover) {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+.testimonialSection :global(.swiper-button-next::after),
+.testimonialSection :global(.swiper-button-prev::after) {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.testimonialSection :global(.swiper-button-next) {
+    right: 10px !important;
+}
+
+.testimonialSection :global(.swiper-button-prev) {
+    left: 10px !important;
+}
+
+.testimonialSection :global(.swiper-pagination) {
+    bottom: 10px !important;
+}
+
+.testimonialSection :global(.swiper-pagination-bullet) {
+    background: rgba(255, 255, 255, 0.5) !important;
+    width: 12px !important;
+    height: 12px !important;
+    transition: all 0.3s ease !important;
+    opacity: 1 !important;
+}
+
+.testimonialSection :global(.swiper-pagination-bullet-active) {
+    background: #ffffff !important;
+    width: 30px !important;
+    border-radius: 6px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .testimonialSection {
+        padding: 80px 20px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .testimonialCard {
+        padding: 35px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonialSection {
+        padding: 60px 20px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .testimonialCard {
+        padding: 30px 25px;
+        border-radius: 15px;
+    }
+
+    .quoteText {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .swiper :global(.swiper-button-next),
+    .swiper :global(.swiper-button-prev) {
+        width: 40px;
+        height: 40px;
+    }
+
+    .swiper :global(.swiper-button-next::after),
+    .swiper :global(.swiper-button-prev::after) {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonialSection {
+        padding: 50px 15px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .testimonialCard {
+        padding: 25px 20px;
+    }
+
+    .quoteText {
+        font-size: 0.95rem;
+    }
+}
