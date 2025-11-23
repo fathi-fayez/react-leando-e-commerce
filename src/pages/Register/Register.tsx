@@ -3,10 +3,16 @@ import type { SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@validations/signUpSchema";
 import type { signUpType } from "@validations/signUpSchema";
+import type { TuserData } from "@customTypes/userData";
 import { useCheckEmailAvailability } from "@hooks/index";
 import { Input } from "@components/Form/index";
+import { actRegister } from "@store/auth/Register/registerSlice";
+import { useAppSelector, useAppDispatch } from "@hooks/index";
 
 const Register = () => {
+    const { user, loading, error } = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch();
+
     const {
         register,
         handleSubmit,
@@ -19,7 +25,7 @@ const Register = () => {
     });
 
     const submitForm: SubmitHandler<signUpType> = (data) => {
-        console.log(data);
+        dispatch(actRegister(data as TuserData))
     };
 
     const {
@@ -92,7 +98,6 @@ const Register = () => {
                             }
                             disabled={emailAvailabilityStatus === "checking"}
                         />
-
                         <Input
                             type="password"
                             label="Password"
@@ -111,6 +116,7 @@ const Register = () => {
 
                         <button
                             type="submit"
+
                             disabled={emailAvailabilityStatus === "checking"}
                             className="w-full py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >

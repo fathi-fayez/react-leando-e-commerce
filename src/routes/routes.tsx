@@ -1,11 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { MainLayout } from '@layouts/index'
-// Lottie animation
-import { LottieHandler } from "@components/feedback/LottieHandler/LottieHandler";
 // Suspense fallback
 import { SuspenseFallback } from '@components/feedback'
-// import { Home, AboutUs, ContactUs, Products, Categories, Register, Login, Error, Cart } from '@pages/index'
 
 const Home = lazy(() => import("@pages/Home/Home"));
 const AboutUs = lazy(() => import("@pages/AboutUs/AboutUs"));
