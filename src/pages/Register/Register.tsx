@@ -6,12 +6,16 @@ import type { signUpType } from "@validations/signUpSchema";
 import type { TuserData } from "@customTypes/userData";
 import { useCheckEmailAvailability } from "@hooks/index";
 import { Input } from "@components/Form/index";
-import { actRegister } from "@store/auth/Register/registerSlice";
+import { actAuthRegister } from "@store/auth/authSlice";
 import { useAppSelector, useAppDispatch } from "@hooks/index";
+import Spinner from "@components/feedback/Spinner/Spinner";
+import { useNavigate } from "react-router-dom";
+
 
 const Register = () => {
-    const { user, loading, error } = useAppSelector((state) => state.user);
+    const { loading, error } = useAppSelector((state) => state.auth);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const {
         register,
@@ -25,7 +29,10 @@ const Register = () => {
     });
 
     const submitForm: SubmitHandler<signUpType> = (data) => {
-        dispatch(actRegister(data as TuserData))
+        dispatch(actAuthRegister(data as TuserData)).unwrap()
+            .then(() => {
+                navigate("/login");
+            });
     };
 
     const {
@@ -116,12 +123,23 @@ const Register = () => {
 
                         <button
                             type="submit"
-
-                            disabled={emailAvailabilityStatus === "checking"}
-                            className="w-full py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            disabled={emailAvailabilityStatus === "checking"
+                                ? true
+                                : false || loading === "pending"}
+                            className="w-full py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 disabled:bg-gray-400 disabled:cursor-not-allowed d-flex align-items-center justify-content-center gap-2"
                         >
-                            Submit
+                            {loading === "pending" ? (
+                                <>
+                                    <Spinner /> Loading...
+                                </>
+                            ) :
+                                "Submit"
+                            }
                         </button>
+
+                        {error && (
+                            <p style={{ color: "#DC3545", marginTop: "10px" }}>{error}</p>
+                        )}
                     </form>
 
                 </div>

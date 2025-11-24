@@ -8,6 +8,8 @@ import { actGetCategories } from "@store/categories/categoriesSlice";
 import { Loading } from "@components/feedback";
 import WhyChooseUs from "@components/WhyChooseUs/WhyChooseUs";
 import Testimonial from "@components/Testimonial/Testimonial";
+import styles from "./style.module.css";
+const { heroSection } = styles;
 
 const Home = () => {
     const dispatch = useAppDispatch();
@@ -45,7 +47,7 @@ const Home = () => {
         <>
 
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white py-24">
+            <section className={`${heroSection} relative bg-gradient-to-br from-slate-900 to-slate-800 text-white py-50`}>
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <h1 className="text-5xl md:text-6xl font-bold mb-6">
                         Welcome to <span className="text-emerald-400">Leando</span>

@@ -3,7 +3,7 @@ import CategoriesSlice from '@store/categories/categoriesSlice'
 import ProductsSlice from '@store/products/productsSlice'
 import cartSlice from '@store/cart/cartSlice'
 import ordersSlice from '@store/orders/ordersSlice'
-import registerSlice from '@store/auth/Register/registerSlice'
+import authSlice from '@store/auth/authSlice'
 import {
     persistStore, persistReducer, FLUSH,
     REHYDRATE,
@@ -20,12 +20,19 @@ const cartPersistConfig = {
     whiteList: ['items'],
 }
 
+const authPersistConfig = {
+    key: "auth",
+    storage,
+    whiteList: ["user", "accessToken"],
+};
+
 const rootReducer = combineReducers({
     products: ProductsSlice,
     categories: CategoriesSlice,
     cart: persistReducer(cartPersistConfig, cartSlice),
     orders: ordersSlice,
-    user: registerSlice
+    user: authSlice,
+    auth: persistReducer(authPersistConfig, authSlice),
 })
 
 
