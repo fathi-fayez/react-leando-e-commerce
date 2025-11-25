@@ -29,7 +29,9 @@ const HeaderBasket = () => {
         <div className={basketContainer}>
             <div className={basketCart}>
                 🛒
-                <div className={quantityStyle}>{totalQuantity}</div>
+                {totalQuantity > 0 && (
+                    <div className={quantityStyle}>{totalQuantity}</div>
+                )}
             </div>
             <h3>Cart</h3>
         </div>

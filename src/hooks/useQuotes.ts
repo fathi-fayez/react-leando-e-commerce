@@ -20,7 +20,7 @@ export const useQuotes = (limit: number = 10): UseQuotesReturn => {
                 setLoading("pending");
                 setError(null);
                 const response = await axios.get<{ quotes: TQuote[]; total: number; skip: number; limit: number }>(
-                    `https://dummyjson.com/quotes?limit=${limit}`
+                    `/quotes?limit=${limit}`
                 );
                 setQuotes(response.data.quotes);
                 setLoading("succeeded");
@@ -36,3 +36,4 @@ export const useQuotes = (limit: number = 10): UseQuotesReturn => {
     return { quotes, loading, error };
 };
 
+    

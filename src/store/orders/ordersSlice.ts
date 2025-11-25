@@ -1,17 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { actPlaceOrder } from "./act/actPlaceOrder";
-import type { TProduct } from "@customTypes/product";
 import type { TLoading } from "@customTypes/shared";
-interface ICartState {
-    products: TProduct[];
-    items: { id: number; quantity: number }[];
+
+interface IOrdersState {
     loading: TLoading;
     error: string | null;
 }
 
-const initialState: ICartState = {
-    products: [],
-    items: [],
+const initialState: IOrdersState = {
     loading: "idle",
     error: null,
 };
@@ -20,6 +16,10 @@ const ordersSlice = createSlice({
     name: "orders",
     initialState,
     reducers: {
+        resetOrderStatus: (state) => {
+            state.loading = "idle";
+            state.error = null;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -27,17 +27,17 @@ const ordersSlice = createSlice({
                 state.loading = "pending";
                 state.error = null;
             })
-            .addCase(actPlaceOrder.fulfilled, (state, action) => {
+            .addCase(actPlaceOrder.fulfilled, (state) => {
                 state.loading = "succeeded";
-                state.products = action.payload;
             })
             .addCase(actPlaceOrder.rejected, (state, action) => {
                 state.loading = "failed";
                 state.error =
-                    (action.payload as string) || "Failed to fetch cart products";
+                    (action.payload as string) || "Failed to place order";
             });
     },
 });
 
+export const { resetOrderStatus } = ordersSlice.actions;
 export { actPlaceOrder };
 export default ordersSlice.reducer;

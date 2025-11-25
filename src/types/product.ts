@@ -37,3 +37,8 @@ export type TProduct = {
   images: string[];
   thumbnail: string;
 }
+
+export type TCartProduct = TProduct & {
+  quantity: number;
+  total: number;
+}

@@ -50,7 +50,7 @@ const Home = () => {
             <section className={`${heroSection} relative bg-gradient-to-br from-slate-900 to-slate-800 text-white py-50`}>
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                        Welcome to <span className="text-emerald-400">Leando</span>
+                        Welcome to <span className="text-cyan-400">Leando</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto my-8">
                         Where quality meets convenience. We’re more than just an online store —
@@ -82,7 +82,7 @@ const Home = () => {
                     </p>
                     <a
                         href="/"
-                        className="inline-flex items-center bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-lg px-10 py-4 rounded-full transition-colors"
+                        className="inline-flex items-center bg-cyan-500 hover:bg-cyan-600 text-white font-semibold text-lg px-10 py-4 rounded-full transition-colors"
                     >
                         Start Shopping Now
                         <ArrowRight className="ml-3 w-6 h-6" />

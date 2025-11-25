@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom"
+import { useAppSelector, useAppDispatch } from "@hooks/index"
+import { authLogout } from "@store/auth/authSlice";
 import styles from './style.module.css'
 import HeaderBasket from "./HeaderBasket/HeaderBasket";
 const Header = () => {
+    const dispatch = useAppDispatch();
+    const { accessToken, image } = useAppSelector((state) => state.auth.user) || {};
     return (
         <header className="bg-gray-800 text-white p-4 px-20 flex items-center justify-between">
             <h1 className="text-3xl font-bold">Leando</h1>
@@ -18,12 +22,26 @@ const Header = () => {
                 <NavLink to="/contact" className={({ isActive }) => (isActive ? styles.active : "")}>
                     Contact
                 </NavLink>
-                <NavLink to="/login" className={({ isActive }) => (isActive ? styles.active : "")}>
-                    Login
-                </NavLink>
-                <NavLink to="/register" className={({ isActive }) => (isActive ? styles.active : "")}>
-                    Register
-                </NavLink>
+
+
+                {!accessToken ? (
+                    <>
+                        <NavLink to="/login" className={({ isActive }) => (isActive ? styles.active : "")}>
+                            Login
+                        </NavLink>
+                        <NavLink to="/register" className={({ isActive }) => (isActive ? styles.active : "")}>
+                            Register
+                        </NavLink>
+                    </>
+                ) : (
+                    <NavLink to="/" onClick={() => dispatch(authLogout())} className={({ isActive }) => (isActive ? styles.active : "")}>
+                        Logout
+                    </NavLink>
+                )}
+
+                {accessToken && image && <img src={image} alt="User" className="w-10 h-10 rounded-full" />}
+
+
                 <NavLink to="/cart" className={({ isActive }) => (isActive ? styles.active : "")}>
                     <HeaderBasket />
                 </NavLink>

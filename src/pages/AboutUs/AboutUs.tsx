@@ -3,7 +3,7 @@ import { ArrowRight, Package, Truck, Shield, Heart } from 'lucide-react';
 export default function AboutUs() {
     return (
         <>
-        
+
 
             {/* Our Story */}
             <section className="py-20 bg-white">
@@ -48,8 +48,10 @@ export default function AboutUs() {
                             { icon: Heart, title: "Customer Obsessed", desc: "Your satisfaction is our #1 priority." }
                         ].map((value, index) => (
                             <div key={index} className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <value.icon className="w-9 h-9 text-emerald-600" />
+                                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <value.icon className="w-9 h-9 text-cyan-500
+
+" />
                                 </div>
                                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
                                 <p className="text-gray-600">{value.desc}</p>
@@ -60,7 +62,7 @@ export default function AboutUs() {
             </section>
 
             {/* Stats */}
-            <section className="py-20 bg-emerald-600 text-white">
+            <section className="py-20 bg-cyan-600 text-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid md:grid-cols-4 gap-10 text-center">
                         {[
@@ -71,7 +73,7 @@ export default function AboutUs() {
                         ].map((stat, index) => (
                             <div key={index}>
                                 <h3 className="text-5xl font-bold mb-2">{stat.number}</h3>
-                                <p className="text-emerald-100 text-lg">{stat.label}</p>
+                                <p className="text-cyan-100 text-lg">{stat.label}</p>
                             </div>
                         ))}
                     </div>
@@ -83,14 +85,14 @@ export default function AboutUs() {
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <h2 className="text-4xl font-bold text-gray-900 mb-12">Our Promise to You</h2>
                     <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-10 rounded-2xl">
+                        <div className="bg-gradient-to-br from-cyan-50 to-teal-50 p-10 rounded-2xl">
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                             <p className="text-lg text-gray-700">
                                 To make premium shopping accessible, enjoyable, and trustworthy for everyone —
                                 one perfect order at a time.
                             </p>
                         </div>
-                        <div className="bg-gradient-to-br from-teal-50 to-emerald-50 p-10 rounded-2xl">
+                        <div className="bg-gradient-to-br from-teal-50 to-cyan-50 p-10 rounded-2xl">
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                             <p className="text-lg text-gray-700">
                                 To become the most loved e-commerce destination where quality, care,
@@ -101,7 +103,7 @@ export default function AboutUs() {
                 </div>
             </section>
 
-         
+
         </>
     );
 }
