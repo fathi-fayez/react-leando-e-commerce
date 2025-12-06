@@ -9,7 +9,9 @@
       "Bash(dir \"c:\\Users\\Delta.co\\Documents\\React Projects\\leando\\src\\store\" /b)",
       "Bash(git mv:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

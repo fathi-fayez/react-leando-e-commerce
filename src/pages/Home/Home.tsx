@@ -18,14 +18,14 @@ const Home = () => {
 
     useEffect(() => {
         // Fetch categories first if not already loaded
-        if (categories.length === 0) {
+        if (Array.isArray(categories) && categories.length === 0) {
             dispatch(actGetCategories());
         }
-    }, [dispatch, categories.length]);
+    }, [dispatch, categories]);
 
     useEffect(() => {
         // Fetch products from a random category when categories are available
-        if (categories.length > 0) {
+        if (Array.isArray(categories) && categories.length > 0) {
             // Generate random index between 0 and 5, but not exceeding categories length
             const maxIndex = Math.min(5, categories.length - 1);
             const randomIndex = Math.floor(Math.random() * (maxIndex + 1));
@@ -41,7 +41,7 @@ const Home = () => {
     }, [dispatch, categories]);
 
     // Limit products to show in swiper (e.g., first 10)
-    const displayProducts = products.slice(0, 10);
+    const displayProducts = Array.isArray(products) ? products.slice(0, 10) : [];
 
     return (
         <>
