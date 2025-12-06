@@ -17,7 +17,7 @@ const Cart = () => {
     }, [dispatch]);
 
     // Calculate order summary
-    const subtotal = products.reduce((acc, item) => acc + item.total, 0);
+    const subtotal = products.reduce((acc: number, item: { total: number }) => acc + item.total, 0);
     const shipping = subtotal > 100 ? 0 : 9.99;
     const tax = subtotal * 0.08;
     const total = subtotal + shipping + tax;
@@ -88,7 +88,7 @@ const Cart = () => {
                                 <h2 className="text-lg font-semibold mb-4 pb-2 border-b">
                                     Cart Items ({products.length})
                                 </h2>
-                                {products.map((item) => (
+                                {products.map((item: any) => (
                                     <div
                                         key={item.id}
                                         className="flex justify-between items-center border-b py-4 last:border-b-0"
@@ -234,7 +234,7 @@ const Cart = () => {
                         <div className="bg-gray-50 rounded-lg p-3 mb-4 text-sm">
                             <p className="font-medium mb-1">Order includes:</p>
                             <ul className="text-gray-600 space-y-1">
-                                {products.map((item) => (
+                                {products.map((item: any) => (
                                     <li key={item.id}>• {item.title} (x{item.quantity})</li>
                                 ))}
                             </ul>
