@@ -3,7 +3,6 @@ import type { SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@validations/signUpSchema";
 import type { signUpType } from "@validations/signUpSchema";
-import type { TuserData } from "@customTypes/userData";
 import { useCheckEmailAvailability } from "@hooks/index";
 import { Input } from "@components/Form/index";
 import { actAuthRegister } from "@store/auth/authSlice";
@@ -29,7 +28,7 @@ const Register = () => {
     });
 
     const submitForm: SubmitHandler<signUpType> = (data) => {
-        dispatch(actAuthRegister(data as TuserData)).unwrap()
+        dispatch(actAuthRegister(data)).unwrap()
             .then(() => {
                 navigate("/login");
             });

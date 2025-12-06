@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import axiosErrorHandler from "@utils/axiosErrorHandler";
 import type { RootState } from "@store/index";
+import type { TProduct } from "@customTypes/product";
 
 export const actPlaceOrder = createAsyncThunk(
     "orders/actPlaceOrder",
@@ -9,7 +10,7 @@ export const actPlaceOrder = createAsyncThunk(
         const { rejectWithValue, getState } = thunkAPI;
         const { cart } = getState() as RootState;
 
-        const orderItems = cart.products.map((el) => ({
+        const orderItems = cart.products.map((el: TProduct) => ({
             id: el.id,
             title: el.title,
             price: el.price,

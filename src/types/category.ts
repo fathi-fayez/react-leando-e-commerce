@@ -3,4 +3,7 @@ export type TCategory = {
   title: string;
   prefix: string;
   img: string;
+  slug: string;
+  name: string;
+  url: string;
 };

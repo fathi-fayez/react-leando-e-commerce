@@ -6,6 +6,9 @@ const { cartItem, product, productImg, productInfo, cartItemSelection } =
     styles;
 
 type CartItemProps = TProduct & {
+    img: string;
+    max: number;
+    quantity: number;
     changeQuantityHandler: (id: number, quantity: number) => void;
     removeItemHandler: (id: number) => void;
 };

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import type { TProduct } from "@customTypes/product";
-import { useAppSelector, useAppDispatch } from "@hooks/index"
+import { useAppDispatch } from "@hooks/index"
 import { addToCart } from "@store/cart/cartSlice";
 
 interface ProductCardProps {

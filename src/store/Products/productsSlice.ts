@@ -30,7 +30,7 @@ const productsSlice = createSlice({
         });
         builder.addCase(actGetProductsByCategory.fulfilled, (state, action) => {
             state.loading = "succeeded";
-            state.products = action.payload.products;
+            state.products = action.payload;
         });
         builder.addCase(actGetProductsByCategory.rejected, (state, action) => {
             state.loading = "failed";

@@ -5,7 +5,6 @@ import type { SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@validations/signInSchema";
 import type { signInType } from "@validations/signInSchema";
-import type { TuserData } from "@customTypes/userData";
 import { Input } from "@components/Form";
 import { actAuthLogin, resetUI } from "@store/auth/authSlice";
 import { useAppSelector, useAppDispatch } from "@hooks/index";
@@ -33,7 +32,7 @@ const Login = () => {
     }, [dispatch]);
 
     const submitForm: SubmitHandler<signInType> = (data) => {
-        dispatch(actAuthLogin(data as TuserData)).unwrap()
+        dispatch(actAuthLogin(data)).unwrap()
             .then(() => {
                 navigate("/");
             });

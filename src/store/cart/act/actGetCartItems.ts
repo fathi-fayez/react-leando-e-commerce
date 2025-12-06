@@ -5,6 +5,7 @@ import axios from "axios";
 import type { TProduct } from "@customTypes/product";
 
 type TResponse = TProduct;
+type TCartItem = { id: number; quantity: number };
 
 const actGetCartItems = createAsyncThunk(
   "cart/actGetCartItems",
@@ -19,7 +20,7 @@ const actGetCartItems = createAsyncThunk(
       }
 
       const products = await Promise.all(
-        items.map(async (item) => {
+        items.map(async (item: TCartItem) => {
           const res = await axios.get<TResponse>(
             `/products/${item.id}`
           );

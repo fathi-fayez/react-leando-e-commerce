@@ -6,7 +6,7 @@ import { isString } from "@customTypes/guards";
 import type { TuserData } from "@customTypes/userData";
 
 interface IAuthState {
-  user: TuserData[] | null;
+  user: TuserData | null;
   accessToken: string | null;
   loading: TLoading;
   error: string | null;
@@ -15,7 +15,7 @@ interface IAuthState {
 const initialState: IAuthState = {
   loading: 'idle',
   error: null,
-  user: [],
+  user: null,
   accessToken: null
 };
 
@@ -46,7 +46,7 @@ const authSlice = createSlice({
       })
       .addCase(actAuthRegister.rejected, (state, action) => {
         state.loading = "failed";
-        state.error = action.payload || "Error sending OTP";
+        state.error = (action.payload as string) || "Error sending OTP";
       });
 
     // login

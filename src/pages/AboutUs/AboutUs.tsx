@@ -1,4 +1,4 @@
-import { ArrowRight, Package, Truck, Shield, Heart } from 'lucide-react';
+import { Package, Truck, Shield, Heart } from 'lucide-react';
 
 export default function AboutUs() {
     return (

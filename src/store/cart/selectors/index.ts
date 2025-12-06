@@ -4,7 +4,7 @@ import type { RootState } from "@store/index";
 const getCartTotalQuantitySelector = createSelector(
     (state: RootState) => state.cart.items,
     (items) => {
-        const totalQuantity = items.reduce((total, item) => total + item.quantity, 0)
+        const totalQuantity = items.reduce((total: number, item: { quantity: number }) => total + item.quantity, 0)
         return totalQuantity;
     }
 );
