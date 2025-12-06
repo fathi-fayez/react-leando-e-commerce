@@ -3,12 +3,17 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import type { TProduct } from "@customTypes/product";
 
-type TResponse = TProduct[];
+type TResponse = {
+    products: TProduct[];
+    total: number;
+    skip: number;
+    limit: number;
+};
 
 const actGetProductsByCategory = createAsyncThunk(
     "products/actGetProductsByCategory",
     async (category: string, thunkAPI) => {
-        
+
         const { rejectWithValue } = thunkAPI;
         try {
             const response = await axios.get<TResponse>(
