@@ -5,7 +5,8 @@
       "Bash(npm run build:*)",
       "Bash(npm run lint)",
       "Bash(git fetch:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(dir \"c:\\Users\\Delta.co\\Documents\\React Projects\\leando\\src\\store\" /b)"
     ],
     "deny": [],
     "ask": []
