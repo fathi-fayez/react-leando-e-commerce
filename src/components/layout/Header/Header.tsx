@@ -22,6 +22,9 @@ const Header = () => {
                 <NavLink to="/contact" className={({ isActive }) => (isActive ? styles.active : "")}>
                     Contact
                 </NavLink>
+                <NavLink to="/posts" className={({ isActive }) => (isActive ? styles.active : "")}>
+                    posts
+                </NavLink>
 
 
                 {!accessToken ? (

@@ -13,6 +13,7 @@ const Register = lazy(() => import("@pages/Register/Register"));
 const Login = lazy(() => import("@pages/Login/Login"));
 const Error = lazy(() => import("@pages/Error/Error"));
 const Cart = lazy(() => import("@pages/Cart/Cart"));
+const Posts = lazy(() => import("@pages/Posts/Posts"));
 
 
 export const router = createBrowserRouter([
@@ -68,6 +69,12 @@ export const router = createBrowserRouter([
                 path: "cart",
                 element: <SuspenseFallback>
                     <Cart />
+                </SuspenseFallback>,
+            },
+            {
+                path: "posts",
+                element: <SuspenseFallback>
+                    <Posts />
                 </SuspenseFallback>,
             },
         ],
